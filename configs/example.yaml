@@ -1,0 +1,19 @@
+base_model: bigscience/bloomz-1b1
+feature_model: facebook/opt-125m
+tasks: [simp, emdg, inq, exp, hgen]
+lora: {r: 64, alpha: 16, dropout: 0.05, bias: "none"}
+train:
+  epochs: 3
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 2.0e-5
+  max_records: 100000
+  deepspeed: configs/deepspeed/zero2.json
+switchnet:
+  retention: 0.0001
+  epochs: 20
+  lr: 0.001
+  batch_size: 32
+eval:
+  per_device_eval_batch_size: 8
+  max_new_tokens: 100

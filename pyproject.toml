@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "switchcit"
+version = "0.1.1"
+description = "Continual Instruction Tuning via Increasing Experts"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=2.1.0",
+  "transformers>=4.41.0",
+  "datasets>=2.20.0",
+  "accelerate>=0.32.0",
+  "peft>=0.11.0",
+  "deepspeed>=0.12.6",
+  "sacrebleu>=2.4.0",
+  "rouge-score>=0.1.2",
+  "bert-score>=0.3.13",
+  "numpy",
+  "tqdm",
+  "pyyaml",
+]
